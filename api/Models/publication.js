@@ -2,23 +2,28 @@ const mongoose = require("mongoose");
 
 const PublicationSchema = mongoose.Schema(
   {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'User'
-    },
     title: {
       type: String,
       required: true,
-      maxlength: 100
+      maxlength: 100,
     },
     description: {
       type: String,
       required: true,
-      maxlength: 1000
+      maxlength: 1000,
+    },
+    picturePath: String,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
+    status:{
+      type: Boolean,
+      required: true
     },
   },
-  { timestamps: true }
+    { timestamps: true }
 );
 
 module.exports = mongoose.model("Publication", PublicationSchema);
